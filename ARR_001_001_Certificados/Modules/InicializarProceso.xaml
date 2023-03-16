@@ -4,11 +4,12 @@
     <x:Property Name="in_HojaConfig" Type="InArgument(x:String)" />
     <x:Property Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="out_dt_Reporte" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_Data" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,2581</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,2628</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InicializarProceso_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -100,7 +101,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;En este móodulo se inicializará la configuración y la DataTable de reporte.&#xA;&#xA;******** REQUISITOS ********&#xA;Se necesita que exista el fichero Excel de configuración con las siguientes columnas:&#xA;        - Nombre: El nombre del parámetro de configuración.&#xA;        - Valor: El valor que tomará el parámetro de configuración.&#xA;&#xA;******** ENTRADAS ********&#xA;- in_RutaConfig&lt;string&gt;: La ruta del fichero Excel en el que se almacena la configuración.&#xA;- in_HojaConfig&lt;string&gt;: El nombre de la hoja en la que están todos los parámetro de configuración.&#xA;&#xA;******** SALIDAS ********&#xA;- out_Config&lt;Dictionary&lt;string, string&gt;: Datos de configuración del proceso.&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - URLPadron&lt;string&gt;: Dirección de la URL para el acceso a la aplicación Padrón.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreCredencialesPadron&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación Padron.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;        - RutaPDFSolicitud&lt;tring&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF anexados a las solicitudes.&#xA;        - RutaPDFCertificado&lt;string&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF de los certificados.&#xA;        - DireccionesEmailReporte&lt;string&gt;: Direcciones de correo electrónico a los que se enviará el reporte, separados por punto y coma (;).&#xA;        - AsuntoEmailReporte&lt;string&gt;: El asunto que tendrá el mensaje de correo electrónico con el reporte.&#xA;        - CuerpoEmailReporte&lt;string&gt;: El cuerpo del mensaje de correo electrónico con el reporte.&#xA;        -TiempoMaximoEjecucion&lt;string&gt;: El número de minutos máximo que se ejecutará el proceso antes de detenerse.&#xA;- out_dt_Reporte&lt;DataTable&gt;: DataTable en el que se almacenarán los datos necesarios para el reporte.&#xA;        - NumeroSolicitud&lt;string&gt;: Número de la solicitud que se ha tratado.&#xA;        - NumeroExpediente&lt;string&gt;: Número del expediente asociado a la solicitud.&#xA;        - Resultado&lt;string&gt;: Resultado del tratamiento de la solicitud, los valores serán &quot;Ok&quot; o &quot;NoOk&quot;&#xA;        - Detalle&lt;string&gt;: Detalle del motivo por el que no se ha podido tratar la solicitud correctamente." DisplayName="InicializarProceso" sap:VirtualizedContainerService.HintSize="798,2526" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN ********&#xA;En este móodulo se inicializará la configuración y la DataTable de reporte.&#xA;&#xA;******** REQUISITOS ********&#xA;Se necesita que exista el fichero Excel de configuración con las siguientes columnas:&#xA;        - Nombre: El nombre del parámetro de configuración.&#xA;        - Valor: El valor que tomará el parámetro de configuración.&#xA;&#xA;******** ENTRADAS ********&#xA;- in_RutaConfig&lt;string&gt;: La ruta del fichero Excel en el que se almacena la configuración.&#xA;- in_HojaConfig&lt;string&gt;: El nombre de la hoja en la que están todos los parámetro de configuración.&#xA;&#xA;******** SALIDAS ********&#xA;- out_Config&lt;Dictionary&lt;string, string&gt;: Datos de configuración del proceso.&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - URLPadron&lt;string&gt;: Dirección de la URL para el acceso a la aplicación Padrón.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreCredencialesPadron&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación Padron.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;        - RutaPDFSolicitud&lt;tring&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF anexados a las solicitudes.&#xA;        - RutaPDFCertificado&lt;string&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF de los certificados.&#xA;        - DireccionesEmailReporte&lt;string&gt;: Direcciones de correo electrónico a los que se enviará el reporte, separados por punto y coma (;).&#xA;        - AsuntoEmailReporte&lt;string&gt;: El asunto que tendrá el mensaje de correo electrónico con el reporte.&#xA;        - CuerpoEmailReporte&lt;string&gt;: El cuerpo del mensaje de correo electrónico con el reporte.&#xA;        -TiempoMaximoEjecucion&lt;string&gt;: El número de minutos máximo que se ejecutará el proceso antes de detenerse.&#xA;- out_dt_Reporte&lt;DataTable&gt;: DataTable en el que se almacenarán los datos necesarios para el reporte.&#xA;        - NumeroSolicitud&lt;string&gt;: Número de la solicitud que se ha tratado.&#xA;        - NumeroExpediente&lt;string&gt;: Número del expediente asociado a la solicitud.&#xA;        - Resultado&lt;string&gt;: Resultado del tratamiento de la solicitud, los valores serán &quot;Ok&quot; o &quot;NoOk&quot;&#xA;        - Detalle&lt;string&gt;: Detalle del motivo por el que no se ha podido tratar la solicitud correctamente." DisplayName="InicializarProceso" sap:VirtualizedContainerService.HintSize="502,2523" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Config" />
     </Sequence.Variables>
@@ -110,15 +111,35 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="736,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicializando Proceso&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CerrarAplicaciones.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="736,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utilities\CerrarAplicaciones.xaml">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicializando Proceso&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CerrarAplicaciones.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="440,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utilities\CerrarAplicaciones.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_Apps">
-          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;chrome&quot;}" />
-        </InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_Apps">[{"chrome"}]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="736,1086" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="440,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[out_Config]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_Data]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="440,565" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence sap:VirtualizedContainerService.HintSize="698,858" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
@@ -165,10 +186,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="702,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,402" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -189,19 +210,19 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Config]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="736,310" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Config]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="440,288" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,172" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_Config(Row.Field(Of String)("Nombre"))]</OutArgument>
               </Assign.To>
@@ -213,7 +234,20 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <ui:BuildDataTable DataTable="[out_dt_Reporte]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="736,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;NumeroSolicitud&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;NumeroExpediente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Resultado&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;5&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Detalle&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;200&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="736,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Proceso inicializado correctamente&quot;]" />
+    <Assign sap2010:Annotation.AnnotationText="Se establece la fecha y hora máxima hasta la que se ejecutará el proceso." sap:VirtualizedContainerService.HintSize="440,103" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Object">[out_Data("FechaHoraLimite")]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Object">[Date.Now.AddMinutes(CInt(out_Config("TiempoMaximoProceso")))]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:BuildDataTable DataTable="[out_dt_Reporte]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="440,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;NumeroSolicitud&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;NumeroExpediente&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Resultado&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;5&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Detalle&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;200&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Proceso inicializado correctamente&quot;]" />
   </Sequence>
 </Activity>

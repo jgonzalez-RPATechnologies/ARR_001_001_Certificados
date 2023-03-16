@@ -1,0 +1,308 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LoginGestiona" this:LoginGestiona.in_Config="[New Dictionary(Of String, String) From {&#xA;&#x9;{&quot;URLEGestiona&quot;, &quot;https://gestiona-07.espublico.com/login&quot;},&#xA;&#x9;{&quot;NombreCredencialesEGestiona&quot;, &quot;CredencialesEGestiona&quot;},&#xA;&#x9;{&quot;NombreFolderOrquestador&quot;, &quot;ARR_001&quot;}&#xA;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="out_Gestiona" Type="OutArgument(ui:UiElement)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1172,4266</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="56">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN *********&#xA;Este módulo Realizará el acceso a la aplicación Gestiona.&#xA;&#xA;******** REQUISITOS **********&#xA;Este módulo no tiene requisitos previos.&#xA;&#xA;******** ENTRADAS ************&#xA;-in_Config&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con la configuración del Proceso, los campos necesarios para este módulo son los siguientes:&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;&#xA;******** SALIDAS *************&#xA;- out_Gestiona&lt;UiElement&gt;: Ventana de la aplicación Gestiona, se utilizará para cerrarla al finalizar el proceso." DisplayName="Login Gestiona" sap:VirtualizedContainerService.HintSize="1068,4201" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="CredencialesErroneas" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Intentar logarse" sap:VirtualizedContainerService.HintSize="1006,3305" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Logarse en Gestiona" sap:VirtualizedContainerService.HintSize="968,3055" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="Accedido" />
+            <Variable x:TypeArguments="x:String" Name="FolderOrquestador" />
+            <Variable x:TypeArguments="x:String" Name="NombreCredenciales" />
+            <Variable x:TypeArguments="ui:Browser" Name="Gestiona" />
+            <Variable x:TypeArguments="x:Boolean" Name="NoLogado" />
+            <Variable x:TypeArguments="ui:UiElement" Name="BotonAbrirGestiona" />
+            <Variable x:TypeArguments="x:String" Name="usuario" />
+            <Variable x:TypeArguments="ss:SecureString" Name="contrasenya" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Fijar parametros de Credenciales" sap:VirtualizedContainerService.HintSize="906,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[FolderOrquestador]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Config("NombreFolderOrquestador")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[NombreCredenciales]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Config("NombreCredencialesEGestiona")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:GetRobotCredential AssetName="[NombreCredenciales]" CacheStrategy="None" DisplayName="Obtener credenciales" FolderPath="[FolderOrquestador]" sap:VirtualizedContainerService.HintSize="906,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[contrasenya]" Username="[usuario]">
+            <ui:GetRobotCredential.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:GetRobotCredential.TimeoutMS>
+          </ui:GetRobotCredential>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: esPublico Gestiona" sap:VirtualizedContainerService.HintSize="906,2564" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[out_Gestiona]" ScopeGuid="83941790-4286-46ca-a84a-6791a393ca06" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="872,2347" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="810,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]0[u(ctrl)][u(hk)]" Version="V3" />
+                  <uix:NCheckState DisplayName="Check App State 'INPUT'" sap:VirtualizedContainerService.HintSize="810,1599" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="506,1382" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Text="[usuario]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/login" DesignTimeRectangle="701, 375, 304, 50" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='username' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' name='username' type='text' class='c-field__input  w-full' aaname='' /&gt;" Guid="316dda71-7d8c-46b2-9525-a10226d7e9ca" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAA2CAYAAABJPmUgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARsSURBVHhe7dqNauJYGIDhvcm9j72PvQWh0CIEAh2EoNSK2lappDhT6iAI0nEaRpytQlGcme4K355zkvjvTGSs4uF94EAT82chL0nMHwIAliBoAKwxDdqff/3NYDAYRzliC0EDgGND0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKzxtkFrlCV19k6c6nM0Y15LPPWZ14gmo2nnerZsK/fOrL9uzNab0/PF2fSZOZasVHrR9AH9aNUlV3iQr5NoBoCd2EvQUmcX4g+ieVMJg+bWpDN4keHSGL9GC807kqAN7y7VsVzK/cr/BMDv2FPQ1Mg8yDiaHUoaNF/60fQvHUnQALyNPQQtK8XropycZVRo5pN24KC9duU+l1XHFQb3xClKpT07vrX7NtsoqyOdGbd9yTgZs42U+o5uoS3D6a1k9B2rD+I5+vNw3f51dmU78k9Lcuez7aQ9X4JR9BmARPYStEpvLI2MOlHTZWl/iz6LT/aDBO27NDx9PEW5f1K3sL1AfE/HZHZrnChon2qS1sdcepS+ug3+2qya/adL3WiB8Dulzjw5Lz1I830gQzV3JWiDD+Kq5U4zvnR66niePkpOB1Dtn+dsQHJ7Cpr6Oz5p84/hZ0mDZoKwNHIL1zYziYO2ui/59ii3+RsVuHAySdCCUlZFqD63zESaOpTT9cL9uNUXMxVbDNpE2nkVU6cm3fl4Derm/+XWFtcFsNn+gqaEJ7Ka/qLP3IRBW/ejwOjfaIklW1+hXUjxLpD+mu0lukJbY3G95e8YWgxaTyquuuWdhj72Iv652tameANYsdegySSQK3Mrpa9qkgZtKSo/s80ztMlAmoVLSafVPtQ6KedSrpr6hjCUKGiToXSqZXHjbcRjq6Ctfu+YOQaCBiS236BprRs5VSewW6vvPmiTcBtrb9MaRXMst/PHEvlv1JVWQUcmI8V2OC9J0LolzzyH8z8N5Ed0u2hitVXQwiu001Jgpmae5VbNJ2hAcvsPmrrda+fiX/N2HDTphleAK6+IfFfbUvtM30hHT36pi+tcSCV6XhZa3L+JlX6uZaZCY/P+WByiZxOixeBMJCio9bYKGs/QgF05QNCUkTrRo9u03QZNRUftU18BpnMfpKN/wXx6FD8fXn1NXxuJb32dsjT1MoP4Cs2Tqzhy6kpSv9IR/oL5LMFd2fyiuRIi9f3y7wPpT/czf8xJgqZs/JVzKXIAfuowQVPCq53dB02HZqjfDXNnV4Enrn7HbPZ8zBh9lornzb2HtvgMTR2hBNfFKGJ6GzfSrOrb1rkQvXbFn24jI07+o7RNrIrSNCFKGDSN99CA3/a2QQOAPSJoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYY2PQGAwG4xhHbBo0ADh2BA2AJUT+Bzc5/tfyWjVrAAAAAElFTkSuQmCC" InformativeScreenshot="f8ae1e268059b896e0f7613ab5d69c04.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="444,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" SecureText="[contrasenya]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/login" DesignTimeRectangle="701, 465, 304, 50" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' name='password' type='password' class='c-field__input  w-full' aaname='' /&gt;" Guid="05b5743d-a4e5-4cf5-a694-349b866f0b36" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAA2CAYAAABJPmUgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVhSURBVHhe7duLShtLHMfx85LnPc57nFcQBEsgEEhZWAxNS6yXpSFFLUYCgWCroeIlwRCxXhr4nZnZ2WSTE1stRnT4fmCg2Z29TGF//Gdn/UsAEAgCDUAwxoH29z//0mg02qtsmalAA4DXhkADEAwCDUAwCDQAwSDQAASDQAMQDAINQDAINADBINAABINAAxAMAg1AMAg0AMEg0AAEg0ADEAwCDUAwCDQAwSDQnsPtnf+HcXulqx8j/wPAU3qGQBvpopmoXIy09Oata8vlTbVOcg95wHrJu3TcpUTtk4FalUjF5NzvBfCUFhxoI51urJoHOlJ5bV9d80D3vu5rPbLhtqqt709dqZxrq/RWxY2XEhgHqhbe6dPZnYaduko22Iof1b70uwE8qcUGWn/bPcTFjRO/wRt1tV40D3e8rxu/6Wm8tEAD8JwWGmg9V529V/OH35DTS95rpZjom/+ty0NtxbGW89PSs1wFd9JQ0WyPP6f90umrrfwOdWX3Nz/6bVkzFaDL0bZie1yyp9iG6BtTIdnNo75a1XeT6xVrahzlp8EjDVt1M1XOzhepVG3rYqqovFJ3o6ZCYf452hWzvdRQp7mp4rjPRzXz45o5x5Kp6Gqtod8H4DEWGmjZA93zv+81slMz09c87K2jgYYnB9qy09JCbnrmA23pTay43lWvf6z2h3Q6W22bgLi90rB/qHVToRVMyA37Q9243EgDzR5XXttTa6eroQmRZmTDo6Yv7npdNWI7Da5NwveoroI5rrh2YK410GkrcddfqR74Dtl0OlZl59hc71hf3DlMgPt7duM3xyyXE7XNdXpfdxXZcZa3deF6jHS8ZsN5Vevtc3eOdEyx1o9cBwCP8CIC7cK9OJ8EgeNDbjkLEB9opWSQ/nbSPpMp5rwpZxpoU8cN9k21FqvaylVK3xsuwOJm+jOtLn015/V2ElXWOiYQjf6eyrPn9fecXd+Nv7CpTu4yw7oda3ZeM/UumaDNLxKM0vtl2gw83gsItJFasa1adtOgyPlWNRVPdnw25fSBk5oNsPsDbfq4OWbP7yu0Qtww1VVW7eW4Ke6qPk29HrxOK79KGldzx++Omw7KaQQa8KdeQKClIZSFQJ6rkhYUaD9P9lWLJu/sspbvd9XZVly200i7L1KxsqfjW7/v8/up46ZaKZ1SPijQBodqVCbv8rJGoAGPt9BAG0/bZqsbY7Io4Cu0aO9/K56dfCA8ZaD92FdkQ+NDR6eX2Uv8X1Ryo2tdZO+/zH26StIFU01fzgYa9mfa4Nod9vtAO3arvSvxrrpn6THzxwDgIRYaaOPPNmY/JJ35bOMx79AeEmiFqc9E5gSVny6mq6DeZfpOLO13p3Y11oqpGvMhO/VezY0tMv3dGuvEwASaD/DfBtq8MY0OVTP/NwQa8HiLDbTxSqD9vMJUQ6Z6mfth7X2rnHbVcWaV89eBNlCjbEOkrm6/r6FbsZwTaD5oV+KGvh2dq7sz+Twj65dOKc19b6SrnOMVyvG3c9emgrT3mK1y2pVQcx7Tp1Tvux6/DbRs3KVEra/nOm3vqmLGw5QT+DMLDjTrTr2dTZXsg2seVBsShcg8wLN/+vTQ79B+GWjSTTv9vGLywn7eVNJ+Y5ZM7qlY01Znz/WbVHf2T7am77uUe4eWmv2GbFVx4r+LMx7yDu3n0bai7M/CzPGVnY4b01Kc9QDwUM8QaADwPAg0AMEg0AAEg0ADEAwCDUAwCDQAwSDQAASDQAMQDAINQDAINADBINAABINAAxAMAg1AMAg0AMEg0AAEg0ADEAwCDUAwCDQAwSDQAATj3kCj0Wi019gy40ADgNeOQAMQCOk/pAX5XrTXn3wAAAAASUVORK5CYII=" InformativeScreenshot="8a53f9745bb001fdead97d171277b4ea.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket:default' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Acceder'" sap:VirtualizedContainerService.HintSize="444,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/login" DesignTimeRectangle="701, 583, 93, 42" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Acceder'" FullSelectorArgument="&lt;webctrl tag='BUTTON' name='login' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' name='login' type='submit' class='c-button-neutral' aaname='Acceder' check:text='Acceder' /&gt;" Guid="f3b9189e-7f9f-49c2-ab07-1227ed6b4122" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGEAAAAuCAYAAAA4CHcaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOvSURBVHhe7VgxayJREL5/dP/g+hTX+gNum0sTUgTBQFAIWIiQEAhI4CDFVqaJjWkWwSBESBAiFktAEcQgKBZrs6nm5u2+Wd+u6xGCZk4yH3xh9c3Oe2++eTPPfAMBO0SE/wCRCN9//BR+MgkiAiMJIgIjCSICIwkiAiMJIgIjCSICIwkiAiMJIgIjCSICIwkiAiMJIgIjCSICIwkiAiMJWxVh77Yf+B47udRxLtaGuKihkzr2mSRsUQQLqi/a+ewJsqk2PPw6ImQcGKDf8XCEf+fQKqbYMPHLiGA5E/Q6gcZBDVx8mrbPVmz2yk1wZ2/B/AreaxfsI9MmD3Z7BJ4eB38BA+cS9hI+Bh75eAPvpQ7ZjOEjcwl3w4UexzmGTWi94kNMBJynM1nO402gVTmIxksdfN/rQ6M3D4c7V8a7HydhSyLkoKE2+voAFpUlrwsl0+YIT4qPcZ11oVouQbaigmnaWeHmQQX+GrKFS6h25uBjoAd13WMSPk5v3SCQfu9GC5XDrFcCLcCtKx/XS0EiEZLzXOPa1TuYQDohwnGEN4KW04TqxWZ6HGE7IhSeYIo+p+1S8Dls0G/wXFnahBvrQ9XM2otuEES3is+6nMVPkBWWEt1j7BcVrLiPk7bK1hHU1Hd6HeP7vOEjD40ZfkkiFB70Wo15MvXg9FLGp651AyRsRYQwENgHCvo7HVCVoaENnZRmrLTEaLuY9Qt4vEgZC3gFj0qxZG0336urfoTPZWMcGesJqTZ6fdomECF5kjdAwhZEOIOWyrTYjUhnMGaTHXxeE0CTFJy1ImCvwVK0DoM62gQ+8FQk3jVFOLwP63wqMPCnaLN7IlRUJq6He2uh3eZOgt/DRlzAnpLg/i+0CUQwTqTm6knA+l9c9ZE9zgXr2zkRznuqTuPGVbONbSosSWrz0caSdbb4AGO8AT3b+LymJ9i9Bfh4wznE56jhx2p1Hk6K+mbznp5Q1DaOaYN9rHAW3bJ2TIQbeFbHADPcShkPBZrA3QF+XrkdOeCqEhUFdfV29Kc90bcjHTDdyCMf5RtoqNuPj+L+Vj4StyMaV4hK4dImnKcE53UXprg2SoCdEoH+TRGWnBQbXaro3xjxOz7uc/i0+jvBvL/7c3D/+TtBCdKHu7Ix/0d+JyhB2jXY1+M7V46E7ydBRGAkQURgJEFEYCRBRGAkQURgJEFEYCRBRGAkQURgJEFEYCRBRGAkQURgJEFEYCRBRGAkQURgJEFEYCQhEkHABxGBHQB/AXmmNv8qyIW/AAAAAElFTkSuQmCC" InformativeScreenshot="4e4625ff84a2a780c3a9b723671e46d4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket:default' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NCheckState DisplayName="Check App State 'Usuario o'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="444,554" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Credenciales erróneas" sap:VirtualizedContainerService.HintSize="400,337" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log BE-002" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;BE-002: Credenciales de eGestiona erróneas.&quot;]" />
+                              <Throw DisplayName="Lanzar Excepción BE-002" Exception="[New BusinessRuleException(&quot;Credenciales de eGestiona erróneas&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/?x=QC4EtffasVH3n6WExZBSxQ" DesignTimeRectangle="721, 182, 925, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Usuario o'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Usuario o contraseña incorrectos.*' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Usuario o contraseña incorrectos.*' type='' class='feedbackPanelERROR' check:text='Usuario o contraseña incorrectos. Debe tener en cuenta que se tienen en cuenta el uso de carácteres' /&gt;" Guid="c040e2f9-cd8c-404c-8af4-06a31b23a09a" ImageBase64="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" InformativeScreenshot="a4de0aebc1f0d84418836dc2e9eb4adf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket:default' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/login" DesignTimeRectangle="701, 375, 304, 50" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='username' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' name='username' type='text' class='c-field__input  w-full' aaname='' /&gt;" Guid="7b39c4d7-17fd-47ab-9b74-1c21b1718e38" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAA2CAYAAABJPmUgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARsSURBVHhe7dqNauJYGIDhvcm9j72PvQWh0CIEAh2EoNSK2lappDhT6iAI0nEaRpytQlGcme4K355zkvjvTGSs4uF94EAT82chL0nMHwIAliBoAKwxDdqff/3NYDAYRzliC0EDgGND0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKzxtkFrlCV19k6c6nM0Y15LPPWZ14gmo2nnerZsK/fOrL9uzNab0/PF2fSZOZasVHrR9AH9aNUlV3iQr5NoBoCd2EvQUmcX4g+ieVMJg+bWpDN4keHSGL9GC807kqAN7y7VsVzK/cr/BMDv2FPQ1Mg8yDiaHUoaNF/60fQvHUnQALyNPQQtK8XropycZVRo5pN24KC9duU+l1XHFQb3xClKpT07vrX7NtsoqyOdGbd9yTgZs42U+o5uoS3D6a1k9B2rD+I5+vNw3f51dmU78k9Lcuez7aQ9X4JR9BmARPYStEpvLI2MOlHTZWl/iz6LT/aDBO27NDx9PEW5f1K3sL1AfE/HZHZrnChon2qS1sdcepS+ug3+2qya/adL3WiB8Dulzjw5Lz1I830gQzV3JWiDD+Kq5U4zvnR66niePkpOB1Dtn+dsQHJ7Cpr6Oz5p84/hZ0mDZoKwNHIL1zYziYO2ui/59ii3+RsVuHAySdCCUlZFqD63zESaOpTT9cL9uNUXMxVbDNpE2nkVU6cm3fl4Derm/+XWFtcFsNn+gqaEJ7Ka/qLP3IRBW/ejwOjfaIklW1+hXUjxLpD+mu0lukJbY3G95e8YWgxaTyquuuWdhj72Iv652tameANYsdegySSQK3Mrpa9qkgZtKSo/s80ztMlAmoVLSafVPtQ6KedSrpr6hjCUKGiToXSqZXHjbcRjq6Ctfu+YOQaCBiS236BprRs5VSewW6vvPmiTcBtrb9MaRXMst/PHEvlv1JVWQUcmI8V2OC9J0LolzzyH8z8N5Ed0u2hitVXQwiu001Jgpmae5VbNJ2hAcvsPmrrda+fiX/N2HDTphleAK6+IfFfbUvtM30hHT36pi+tcSCV6XhZa3L+JlX6uZaZCY/P+WByiZxOixeBMJCio9bYKGs/QgF05QNCUkTrRo9u03QZNRUftU18BpnMfpKN/wXx6FD8fXn1NXxuJb32dsjT1MoP4Cs2Tqzhy6kpSv9IR/oL5LMFd2fyiuRIi9f3y7wPpT/czf8xJgqZs/JVzKXIAfuowQVPCq53dB02HZqjfDXNnV4Enrn7HbPZ8zBh9lornzb2HtvgMTR2hBNfFKGJ6GzfSrOrb1rkQvXbFn24jI07+o7RNrIrSNCFKGDSN99CA3/a2QQOAPSJoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYY2PQGAwG4xhHbBo0ADh2BA2AJUT+Bzc5/tfyWjVrAAAAAElFTkSuQmCC" InformativeScreenshot="05ae36da29f93421d8f17cac65c2f8d1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <uix:NCheckState DisplayName="Check App State 'Abrir Gestiona'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="810,374" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <uix:NClick ClickType="Single" DisplayName="Click 'Abrir Gestiona'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="1003, 215, 111, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Abrir Gestiona'" FullSelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' automationid='' check:text='Abrir Gestiona' /&gt;" Guid="c110f25e-ecb2-44ab-b728-59414d81bd32" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHMAAAAkCAYAAAC6yAWpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARBSURBVHhe7Zs/TyJBGMbvc/gl6OzsLK+js7Ozs7CgICEWmthYEBILChNCYQgNBQkVJldoQQwNJianBUe4HAvssmxQZI/kufednV2WVfSQw4PNPMlEZmd2/v3mfWaXyBcohUYKZog0BfP3eAzdMFH/8RPfH+oqrWhiPsyJefnlweSCRvMXunoPo5EtryqtopgPc2JefqAeTCbNFZTWR0FmHkwOXRWR6yXmxdxceTDZi5XWT35uCuaaS8EMkRTMEEnBDJEUzBBJwQyRlgzTQu6whY2DDm7kFSFNx+5BC6mazL8n28JlwcD9k8y/J/sRV/k2dmLcNyX6u5vtwZTFC2nesXyilgvzoYvtwzb2CWiq5vvucF6YTapPQDJ/NawBCqctRKjfXG0Asz+EVu8hQzA1WWMuNQ3EjtoouTfPNZbP1VJh3l60EC1YaBRocdM9DOX1uWHOIe5rI05O8K8ip9ah6NZQ+NBO+FwtEWYf6XgLOW6KdvPOQRtX7jeEEuZx0UBC2DBBPzPQEIUUWSd07ayDNJedkzn6F1R+Ps62sfVikR1b3y0OZP51Deu61+8mRXCpyQMbo3E9sebIqQFN9OXkOe2Wqd0AXH9bbOeJsiU3rZzHuY5Sktqj8s2TLm7lJmt88/UV05C5e3YKFtDyYN6xxeoeoNwRwauORM6FuZ2kctvGUOshQeB3CgxBLkKc4PelNb+AOQuYiRSVTSLeyTsw5P19sk1avIIAaKNR1LBxROPQdexRvfRD4DvpALypPM2D79krEkCah/ng5J15TuZxqY0w1Klfrlt+FM2YTQumzfOzcZuleqf6x44Bn5YEc4ybc3cRfcm12ldsVtTnKPR2tO9x5QVM3+JOyRJu4C4YL9SQzkyz0vbu0coELzgu8YBmIUMRxmdtpsILLZt4A6ZoK07RJouAEa7S7tiD83Dy2xeWyA3rBtJJDVHuk8dwsrIw3QihheTF5ESRGnWt9gVMCX9hmLIdWhjHEaTeBOCT/YT7CtkmuUjkUNZ5D6bnPiwHZiQ7G6bI93siSo8rjueKdlYV5rDapt0WeB2RURO7ptiUML9SpGr2yLMnUbYQTJJmYJ/Ooq9nOm6avJEecV+cRKZzfktr5Pr9PnJlX18s6oPP45JOn+lMjFL9jGu//v7lPII2m7rz2exrMOV9ok161cnx9VWFKawmaQTe62TU8HU5mdhFVzzms9Xt5fuBB4cPwmTp9CpCFrZF7XLbm3ENsTxvHC4cw6x2sCf75bJUlc5fOtN4E/A1fiBJXLtn8gAletURY2T7nuqf2iLH2adN6t6XqkzumwkTz7ihJ/1N7v+wg0J+hSNT6f9IwQyRFMwQScEMkRTMEEnBDJEUzBBJwQyRXoWp/gl6/TTzn6DVzxPWTzN/nuD+cIgrqAhdbTEf5jTzh0MsLmDSHLrsxSqtZmI+zMkPkjUFU2m9pWCGRsAfp7S76qTy6JUAAAAASUVORK5CYII=" InformativeScreenshot="bcc1b8acb6682aa15825d716a0e398dd.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='esPublico Gestiona - Google Chrome' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1003, 215, 111, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Abrir Gestiona'" FullSelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' automationid='' check:text='Abrir Gestiona' /&gt;" Guid="4f89df59-de59-4816-8764-d3a4512604a9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHMAAAAkCAYAAAC6yAWpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARPSURBVHhe7Zs/TyJBGMbvc/gl6OzsLK+zs7Ozs7CgICEWmthYGBILChNCYYgNBQkVJldoQYyNJiYnBcfhHQvushAUWUmee9/Z2WVYQQ85PNjMk2xgdmbn32/eZ3YJ+wVaoZGGGSINwXzp92FaNso/7vG9VNbHnB7MhzkxL1U+TM6oVH/jwWyi13PkWa15FPNhTsyrrwD1YTJpLqC1OGJeKjMfJoeujsjF0nOvh3LlXqYUmOzFWosnlZuGueDSMEMkDTNE0jBDJA0zRNIwQ6QZw2wjs1PD0nYDl/KMkGFiY7uGxLVMvyenjbOshbsnmX5PziPOT+tYj3LbdNDnRroJW2ZPpUn78omaLczSA1Z36tgioIlr5bfDSWFWqTwBSf1VtzrIHtQQoXYz1x3YrS6MchMpgmnIEhOpaiG6W0feu3iivnyuZgrz5qSGtWwblSxNbrKJrjw/McwJxG0txcgJ/lXkXDcoug1kP7QSPlczhNlCMlZDhqui1by+Xce59wuhhLmXsxAXNkzQjyxURCZF1j6dO2ogyXnHZI7qhMrve+k6Vl5NsmvrG7mOTI9Wt2z67S5TBOer3LE+KhcDa44cWDBEW26aj40C1RuAq9bFdh4vtOWileM4NpE/pPoof3n/ATdykVW+KW1FDaRun92MKTQ7mLdssaYPKLNL8K56IuXBXD2kfMdB12giTuDXswxBTkKM4LekNb+COQ6YjQTlDSLeTbsw5PUtsk2avKwA6KCSM7C0S/0wTWxSuWQp8Jt0AN5QmsbB12zmCCCNwy65aXecg3GcGT10TWqXyxYeRTV2tQ3b4fE5uElTuQPzY9uAohnB7OPy2JtE5fCsdoTNivIchf6KVm5XXsFUJndIbeEG3oTxRHVpz7SLdf8ao0Dwgv0SN2htpCjCeK9NFXmiZRVvwBR1xSjaZBbQw3nS63twHG569aQtUt2yheShgTVuk/uwP7cwvQihieTJ5IMidc2z2lcwJfypYcp6aGJcR5B6E4Ai5wl3RbJNcpHIjizzHkzffVguzEh6PEyRbjVFlO4VXc8V9cwrzO5VnVZb4HFERk30gmJTwvxKkWo4Pd+eRN5UMEmGhS3ai74embis8kJ6xF1uEJnu/i2tkcu3WsgUlLZY1Abvx3mTvtOeuEblU579qu3LcQRtNnGr2OwomPI6USc96mT4/LzCFFZzaAWe62TU8Hk5mOjJg7jNZ6vbPG0Fbhw+CJNl0qMIWdgK1ct1L8cMRE954XBmH/ZVA5uyXc5LXNH+S3saLwI+xzck8QtvT+4gT486oo9s30PtU13kOFu0SL3rEsXBdWNh4hmXdKe/zO3vNJA9nePI1Po/0jBDJA0zRNIwQyQNM0TSMEMkDTNE0jBDpJEw9Z+gF09j/wStX09YPI19PUG8OPTzl8hk4lrzK+bDnJjXyBeHWC8v8pU+Cl32Yn3M58F8xCt9xEvVEEytxZaGGRoBfwCs7Lvc/haB7QAAAABJRU5ErkJggg==" InformativeScreenshot="ef013e6623ed6ccf62b7a030c85637c1.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='esPublico Gestiona - Google Chrome' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVDhPRZNLSNRRFMb/OmNlmr0oWvSCNoEWBQlB0KIosF1tatWiFqkzvk2iUZNeZKmlJKVgm4Ko6GmlkGlqBOGjiKymGjWTsvc2JP31nbk+LnxzH3O/75zz3fP3JgdBv0dWnI+AbwPpXhUBfy+5s7/pfIQMr5vMmHKt1wmxdndqRIkOcwn6QgTjhjmfNk7zSXh2SWiAht1waMm4RAaFAt1NnBKZICcJ9QRi/9GwB34Pwc1CqNoMnXXwsx+GenWWD4eXjkqkWvcToiL6iRFCOvxHbRr8GoSHRyF7JmR6KCM4vgaaTsDIW/jYCSfWjqqsPPa6DFJFHqJiE3x7Dx0XIC8ReSGy380ZEkqPgeIV0FgCj89CwfyPOk/xFKWSYynw+QX0XIfCBY5g0bMUvWgxlKfC5X3QVg3vWhQobOWNy+wyy6CHJ+fh7SMoXQWh5VCzHW4XQddV+NTtCAPP3dpKrNvpAgV87R55c0Z4eQde3YPXD+D7B/j6BvqanagRqrcq5XlwZqP+V5mnNUf98fdLIHGElgr3ZC2V8GcYane49M0Xe4GT611Z+UkQboP7RyQgT4L+iEqI61LDKJ1YKFmp6HL63BZHsHLMeXtai2gkM/FDu8so4Gs1D6zDnNuHljgz63c5AXuNcKt7ViMbLKsvfXAseUx3ik1gvTCgLnSqkadwZb8TMNHOi9B7QyXNcHsz70aOXmfRO91ZbQKGQmGUnHiZ1wS31IXRlIVrWc79gwudgGWbPeuvAmZyYLqVrbetPUejTdJYOpGyBGq2wY+IUlavmE9Bv5FPaY4Xop/DpEiCIuTKh4j6YVx7Rwgtg7sh68Ix7cM6zxCmyZPDDsidEaPuSiYztkz7DqFfiGjfJvFirVcL9u1MsDzvP0HMd8ZtkvB1AAAAAElFTkSuQmCC" InformativeScreenshot="4b6546eac429a58d99abd657920fbfbf.jpg" Selector="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/*' /&gt;" Url="[in_Config(&quot;URLEGestiona&quot;)]" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="972,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,606" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No se ha podido iniciar sesión en eGestiona&quot;]" />
+              <uix:NTakeScreenshot DisplayName="Take Screenshot 'esPublico Gestiona'" FileName="[String.Format(&quot;Screenshots\screenshot-{0}.png&quot;, DateTime.Now.ToString(&quot;yyMMddhhmmssffffff&quot;))]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="338,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" OutUiElement="[out_Gestiona]" Version="V3">
+                <uix:NTakeScreenshot.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="0, 0, 1265, 740" DesignTimeScaleFactor="1" FriendlyName="'esPublico Gestiona'" Guid="9d7df5b1-5bab-45e6-86a0-53799db81872" ImageBase64="" InformativeScreenshot="2069943a9907cd0c85ed6a30d39ba266.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='esPublico Gestiona - Google Chrome' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.FuzzySelectorArgument>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </uix:TargetAnchorable.FuzzySelectorArgument>
+                  </uix:TargetAnchorable>
+                </uix:NTakeScreenshot.Target>
+              </uix:NTakeScreenshot>
+              <Throw Exception="[New Exception(&quot;Error desconocido en el acceso a eGestiona.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:SelectorNotFoundException" sap:VirtualizedContainerService.HintSize="972,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:SelectorNotFoundException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:SelectorNotFoundException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;BE-003: Página de acceso a eGestiona no es como se esperaba.&quot;]" />
+              <Throw Exception="[New BusinessRuleException(&quot;Página de acceso a eGestiona no es como se esperaba.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:UiElementExists DisplayName="¿Credenciales erróneas?" Exists="[CredencialesErroneas]" sap:VirtualizedContainerService.HintSize="1006,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="035b7e03-0bb3-4630-9469-741d416253e1" InformativeScreenshot="2f195754affb50758cf73033567e6337" Selector="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/?x=FYu0CmeU9q0G5v2WPdhI8g' /&gt;&lt;webctrl visibleinnertext='Usuario o contraseña incorrectos.*' /&gt;" TimeoutMS="3000">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[CredencialesErroneas]" DisplayName="Si credenciales erróneas" sap:VirtualizedContainerService.HintSize="1006,376" sap2010:WorkflowViewState.IdRef="If_3" />
+  </Sequence>
+</Activity>

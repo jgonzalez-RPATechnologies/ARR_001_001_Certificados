@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="BuscarSolicitud" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="BuscarSolicitud" this:BuscarSolicitud.in_Config="[New Dictionary(Of String, String) From {&#xA;&#x9;{&quot;URLEGestiona&quot;, &quot;https://gestiona-07.espublico.com/login&quot;},&#xA;&#x9;{&quot;NombreCredencialesEGestiona&quot;, &quot;CredencialesEGestiona&quot;},&#xA;&#x9;{&quot;NombreFolderOrquestador&quot;, &quot;ARR_001&quot;},&#xA;&#x9;{&quot;RutaPDFSolicitud&quot;, &quot;Data\Temp\Solicitudes\&quot;},&#xA;&#x9;{&quot;TiempoMaximoProceso&quot;, &quot;120&quot;}&#xA;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="io_dt_Reporte" Type="InOutArgument(sd:DataTable)" />
@@ -7,10 +7,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1760</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172,3915</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>BuscarSolicitud_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -44,10 +44,17 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
-    </sco:Collection>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="55">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -89,67 +96,150 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN *********&#xD;&#xA;Este módulo obtendrá la primera solicitud que cumpla los requisitos, en caso de no encontrarse ninguna, se devolverá los campos como Nothing.&#xD;&#xA;&#xD;&#xA;******** REQUISITOS **********&#xD;&#xA;Este módulo no tiene requisitos previos.&#xD;&#xA;&#xD;&#xA;******** ENTRADAS ************&#xD;&#xA;-in_Config&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con la configuración del Proceso, los campos necesarios para este módulo son los siguientes:&#xD;&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xD;&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xD;&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xD;&#xA;        - RutaPDFSolicitud&lt;tring&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF anexados a las solicitudes.&#xD;&#xA;        - TiempoMaximoEjecucion&lt;string&gt;: El número de minutos máximo que se ejecutará el proceso antes de detenerse.&#xD;&#xA;&#xD;&#xA;******** SALIDAS *************&#xD;&#xA;- out_Data&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con los datos obtenidos de la solicitud.&#xD;&#xA;        - DNIHabitante&lt;string&gt;: Número de DNI del habintante del que se solicita el certificado.&#xD;&#xA;        - NombreHabitante&lt;string&gt;: Nombre y apellidos del habitante quie solicita el certificado. Se usará como método de búsqueda de contingencia en el caso de que no se pueda encontrar mediante el número de DNI.&#xD;&#xA;        - NumeroSolicitud&lt;string&gt;: Número de la solicitud recogida.&#xD;&#xA;        - RutaPDF&lt;string&gt;: Ruta del fichero PDF que estaba anexado a la soliciud. Incluirá el nombre del fichero con su extensión.&#xD;&#xA;        - TipoSolicitud&lt;string&gt;: El tipo de solicitud recogida, admite los valores &quot;Certificado de Empadronamiento&quot; y &quot;Certificado de Viaje&quot;." DisplayName="BuscarSolicitud" sap:VirtualizedContainerService.HintSize="658,1695" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN *********&#xA;Este módulo obtendrá la primera solicitud que cumpla los requisitos, en caso de no encontrarse ninguna, se devolverá los campos como Nothing.&#xA;&#xA;******** REQUISITOS **********&#xA;Este módulo no tiene requisitos previos.&#xA;&#xA;******** ENTRADAS ************&#xA;-in_Config&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con la configuración del Proceso, los campos necesarios para este módulo son los siguientes:&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;        - RutaPDFSolicitud&lt;tring&gt;: Ruta local en la que se almacenarán temporalmente los archivos PDF anexados a las solicitudes.&#xA;        - TiempoMaximoEjecucion&lt;string&gt;: El número de minutos máximo que se ejecutará el proceso antes de detenerse.&#xA;&#xA;******** SALIDAS *************&#xA;- out_Data&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con los datos obtenidos de la solicitud.&#xA;        - DNIHabitante&lt;string&gt;: Número de DNI del habintante del que se solicita el certificado.&#xA;        - NombreHabitante&lt;string&gt;: Nombre y apellidos del habitante quie solicita el certificado. Se usará como método de búsqueda de contingencia en el caso de que no se pueda encontrar mediante el número de DNI.&#xA;        - NumeroSolicitud&lt;string&gt;: Número de la solicitud recogida.&#xA;        - RutaPDF&lt;string&gt;: Ruta del fichero PDF que estaba anexado a la soliciud. Incluirá el nombre del fichero con su extensión.&#xA;        - TipoSolicitud&lt;string&gt;: El tipo de solicitud recogida, admite los valores &quot;Certificado de Empadronamiento&quot; y &quot;Certificado de Viaje&quot;." DisplayName="BuscarSolicitud" sap:VirtualizedContainerService.HintSize="1050,3850" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:UiElement" Name="Gestiona" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Login eGestiona" sap:VirtualizedContainerService.HintSize="596,708" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LoginGestiona.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="988,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\BuscarSolicitud\LoginGestiona.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_Gestiona">[Gestiona]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="988,2958" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: esPublico Gestiona" sap:VirtualizedContainerService.HintSize="950,2730" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V2">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="916,2513" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Registro de Entrada'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/?x=gMbenWWPHoYsX3-Whm4Zr7nrOs-IAsLP49dZH9XEibjr5UL2MauOW*310**hub0AAE5X-yXIezgVYtIzQIpvMw" DesignTimeRectangle="352, 180, 278, 35" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Registro de Entrada'" FullSelectorArgument="&lt;webctrl aaname='Registro de Entrada' aria-role='menuitem' tag='A' parentid='menubar1' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Registro de Entrada' aria-role='menuitem' tag='A' parentid='menubar1' type='' class='py-2 px-4' check:text='Registro de Entrada' /&gt;" Guid="0239553b-6552-4d50-9a9f-f723a1401d16" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAfSURBVBhXY4CB/1AA5UIEbt+5iyqgZWqPKmBg5/kfAHcWGtN3BEt/AAAAAElFTkSuQmCC" InformativeScreenshot="aeb4b7c5166197556faa9f26fc767809.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Búsqueda Avanzada'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/?x=gMbenWWPHoYsX3-Whm4Zr7nrOs-IAsLP49dZH9XEibjr5UL2MauOW2X9ev7pdWu5iY52EhsmT-0I0j9hRE9JNQcUnxGZ5TdRKmG0vT32Zss" DesignTimeRectangle="357, 188, 145, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Búsqueda Avanzada'" FullSelectorArgument="&lt;webctrl aaname='Búsqueda Avanzada' parentid='menubar3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Búsqueda Avanzada' parentid='menubar3' tag='SPAN' type='' class='' check:text='Búsqueda Avanzada' /&gt;" Guid="fccf14ae-c196-472b-a7d9-45f065406845" ImageBase64="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" InformativeScreenshot="f0345d0569fc154953399efbe66074ff.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Trámite'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="226, 404, 45, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Trámite'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Trámite' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Trámite' tag='DIV' type='' class='meta-text ng-binding' check:text='Trámite' /&gt;" Guid="308325a6-a5a4-4625-a02d-34b0dd9977cd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADEAAAATCAYAAAA5+OUhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI3SURBVEhL7ZW/a9tAFMf7H2XqFjKELAmEFA3Cg7xYi72YgIwhAZOAO4mCTUAQAoIMmuTFXtTFBBICLVgEEjS4hgpDIQQiMiiLMn177+7kX2naqm6LW/yFB37v3v34+L07vcJ/oCXEomgJMVJyA1Pbxopm4TqRsQxKghPohTLs4ElGsmkMEVhYWWMHecHMQOY90xPC9h52iiYuIxnKqITtvbOmoHbxwP3rI9rTQOcn1xtD3J6jeWxxq1dy/OCblcYodnYr8/6Cfh1iQveewSFK3p2MMMlK6UcWqm8UbDp9IPJh7+exyqulQHvnIeTtdIdOhWJvYbsG1jfY760i7Ksv6DllkU9+8MiXTtem/QTA2NIOiIMWqkWFx1a1PTgDOZcpMwQddr2gs9J/kgc1YH/0cekYeM3GOdwIQoF6eIqOZ0KTc6d89QSUPQkRD304+5Srw+z6CGM2HnkoUT4dvt1CjWA2DnBGY0yZIVT3swzMKPmAOm1U8XA/gmAXnQ+mfgO9KV+OT0CQZtup71B752APhI+rBs+vXohqZIaYjCVDD/VijleAxrh9F+IF/wcQsy2WWpo/B0QftsoWK1joRfQ0smeWFv8DEKISeTSDB8Tx49jkcz4HxA2adGHVA7jsTrw/LouK/AaIsK1zXzu04NLlH7bEHWJ3oul10XFN6EU2d34I1k6DU5TYSyVepgaqvDIthHNCIDpHrSDW3e2Kb8dU627lsev47M8S+ibEv6YlxKJoCbEYAr4Cnev+nRH8e6oAAAAASUVORK5CYII=" InformativeScreenshot="fc8117e0ea2df25de85e20963ea39f82.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Text="[&quot;&quot;&quot;Volante de empadronamiento&quot;&quot;&quot;]" Version="V3">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="174, 484, 202, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' type='text' class='lui-search__input ng-pristine ng-valid ng-empty ng-valid-maxlength ng-touched' aaname='' /&gt;" Guid="41d5fce0-3849-4c20-988f-e60654a7a3ac" ImageBase64="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" InformativeScreenshot="219db15b4ddc5debec02d527c77f8580.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Certificado o'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="148, 529, 261, 18" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Certificado o'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' aaname='Certificado o Volante de Empadronamiento' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' aaname='Certificado o Volante de Empadronamiento' type='' class='ng-binding ng-scope' check:text='Certificado o Volante de Empadronamiento' /&gt;" Guid="2424516b-9118-44fd-be51-541b433b0352" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQkAAAAWCAYAAADTn2meAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARbSURBVHhe7Zk9chsxDIVzydwjtStXbnICa3wAX0F2l9KNZ2SlSJEm48K6ghuGIMjdBxCktNZKWif4MjueXf6Bj8BbSfkSHMdZHNfX1+H19TW8v7/nJ5fDTcJxFoibhOM4XdwkHMfp4ibhOE4XNwnHcbos2yTeHsLVt+/h63Ddh21umovtXZz37iXfRWDN1Ybbrx53uXE+TjUv8xJWMX5z/rS/27B+y/dNaI759T6Wj+nGeox5xNfp9J9AOo/l6YyQSax/PIWn7e/w/OvPRS9pEpv7oVAH0rMjBKUDuXkImBraJGQS7sL6RrbPxWlNIkb+eGvG3XpeM59J0F7FOR7Bx03iEGO8AJ/EJBb4SYKL00qso4rLMAlJe925ObVJ2Mk3ZX9uEmfBTWISo0kcLFx+05ePkPCGpDfm1eNLbo8J8pPmrPtyP046SsChHS5MyvQmHtowxnYsifzJKF3RqNY62bE9Xr2ikjG0kt8whEpX9TFcxKxMQsQn12QNH8RcZV2pKYzrzCeYpFtrnr5J1PHTvuV5oo7WfqVxSV1lm5o3zoNnwnND3rZ0OSPLNIl08JjMFiz2eACyKLiQlMjGJwk+FHsOAt9caU4Yn+5zYck3nJpHF2e6h/56v7kd4yjoGHisnUwYHyHvOZHHNXLyivYck46f1tQ66Ha4J23EXvR+1XwDU3VrzaOKlq9RMx0/34Omat5qvymu0l/nkDQomSfFRDtrL4DPaxI6gSIkMBY0HkaCxqgkkv16JlG3Jd52sSX+U4eKhaETg8Bn+9pHrBgacRFCI9XPKijxDE2CdggoHWutYWwEtSDqvcn+hX26HDqPLlRNFb/WRuWalVtjLDoXSPe8tpGzh8x9aT7v143UR78dxqQxxaYxc5tEwYin9J2e7ByX/PhP2DFY4xnorzW1TEL0qQsd96bfrHL9/SYh5kpXfd7WvvDZofOc1yQiNF7E5CYxF/DDJR2qXZC7+B0uCWoJDphi05iTmIQ9rtyLBMrgs33tI1YMvbhia9wfmU35O2CZhHgGhW4VDdzXWu83iXpvNft0OXSe85qEXovOx01iLsAkWCz93YyflcPg4kBBqb0koym2cUiyn13spT2tj8lDyZQKT49TJkf9cN0UB8RutttJbcagEw+huW7uw6oyEhVjpScUuioaHUOtNYyNVMVcxRz7454KU3VrzZPimdck2uel1hJtdc6SNjiXreU4JvUvsaX963Odn8WaRCKLMFxVArCAQzu9MeP3Z6IWm+BD4v58cLJf3yQIPtRyxcMt39dFrPF5uh+TRYyL+9iq+Djxxj69g5cxQEKa5D1bxZOLbphLfL0hbUvyom6kR/71Pfe3ExuKCLWBMcMz2sNG/e6RmaZbax6VJ+VqxU/xol6GSbT+N4cQMeWYByNQmq82Uqsqltyfn5VzyP2zrv+3STjOAqkK+R/HTcJxJuImcTncJBxngbhJOI7TxU3CcZwubhKO43RZjkmE8BeabCySux+pgwAAAABJRU5ErkJggg==" InformativeScreenshot="56595e152b00af80147fa63bef8989d5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Text="[&quot;&quot;&quot;Certificado de Viaje&quot;&quot;&quot;]" Version="V3">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="174, 484, 202, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' type='text' class='lui-search__input ng-pristine ng-valid ng-empty ng-valid-maxlength ng-touched' aaname='' /&gt;" Guid="41d5fce0-3849-4c20-988f-e60654a7a3ac" ImageBase64="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" InformativeScreenshot="219db15b4ddc5debec02d527c77f8580.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Solicitud de'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="148, 528, 191, 18" DesignTimeScaleFactor="1" FriendlyName="'Solicitud de'" FullSelectorArgument="&lt;webctrl id='id2fd' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' aaname='Solicitud de Certificado de viaje' /&gt;" FuzzySelectorArgument="&lt;webctrl id='id2fd' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' aaname='Solicitud de Certificado de viaje' type='' class='ng-binding ng-scope' check:text='Solicitud de Certificado de viaje' /&gt;" Guid="6e89e610-af96-4a86-a733-5295a03cf5d3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMMAAAAWCAYAAAB9jCg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQRSURBVHhe7Zg7bhsxEIZzSZ/DPoIrNWnUuDTgTp2g0nAjuHMXuEzri2w4w8c8Se4qdqAYU3xItCSH//zD4Ur+8ev3xxIEwccSzRAEhWiGIChEMwRBIZohCArRDEFQUM3wuuzufi43jYfl8Y2PjzkfHpbbw3v7/839cTmrOZa85+7ZG7uQt+Nye/e0nLwxzfPTSp0OuA/3a+WeGzjtU9z9a/uMvra9wLttNVrH+/J4/0k12VKLlWhPumysLWuGbEA9zAgE25DIpzQDmHfp4az8i2ZAb9SB2eiXwcldFl4d/tKMn3qRIN+jGfLFsX5vagZX9DZTeDNcjHMgNrOlABc1Q98XKNTFHsxy/4KD5XPdzfBVqGbwX7nnNyouvaYBOV80Axwy0b3yKxgdGDC+xEENNKeuN01mDM7Fq+t2h1EBuI6070E3Q08nY3WBpS7uR87ptYwnHS+z3KUuwtaAxvoe6ZtVrNsfca5ohvImrPQbZV6LvsaMd/PjmlIn8gTGBnmZi27sgfjNwEV6h4ALwmdoEBVDiBTNkAtJBsLnug4EsoLCQVO3o0y+zGEm6tsYzXQPazaDdBRz2n4jnQzM24vPybF10Wrs7LWKPcvdNKHUp+uDn0sNpEfKB31oMD81zvdFHdwnYlaLkcaGydN6V/dYn9e4HoD6AV3JE3NjVFF2sX7GRaKQmqQ2G3lPb5z87181gzGu8wzwdPBnzjiYLXNOwDwvPsfRwPMwOQGz3E1Mfak4WtNb/dy8JiiveV31Ae89m9fC2cvJGRC+q7jkySivBK+no03XoNMMlSy+buyZzU0RwUHIsBkqEPeKmgEvAInOuRufg3NsLNcrvmaUu9l3RTNUHD15rrdOPvMOPuia3+j6WY7LNSDe2WDnR3tlPZHxWi68ts48gMdtzeAmlyAj5qYJkSwZIcoAMa73zeCjv04R5/QduauLYXICZrmbmGubwY7RDTqvq9cM3rN5LUYaNTU3WMPOR4I8GeWV4PWc1ANQP6CVUHxGQkCEOCywGdtAFA7GWnPpw8MTVMk6ovW+kLD++sYLI8c5no40t8W2h/y0l4WooCbmDT2TlwfXBeM1tvCq0sm9zTPjvBnK/ro+WIOshfKSebrruA+qzvpcEPNamL0glnMJA5j7/mlwQYzzQt1t7bgegPyahEnm10fGJpyT88dJZPosmiGhYsNfUtzfDEW0jM+fQbKQtC7OYJxTCp1J8Z/TWl0cFot0OohYCVW0Wpw2nvyof5kTXjVs7mIeaus3AyDrk+bib4Y0JrSm5/jZ9xd0Qhx+UEAHrZdjghW16GrUlFjaJ3POeCyeF/xf1KRfD2DymyEI/l+wgTtvHY9ohuD70d5O8q05I5ohCArRDEFQiGYIgkI0QxAgH8sfcCjT0NlVQYwAAAAASUVORK5CYII=" InformativeScreenshot="d8ce93cb17f8a1457d92037ebd6aa212.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NClick ClickType="Single" DisplayName="Click 'Estado'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="550, 404, 40, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Estado'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Estado' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Estado' tag='DIV' type='' class='meta-text ng-binding' check:text='Estado' /&gt;" Guid="01411558-b5b7-4782-970c-bda6d1c8d7d2" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAATCAYAAADrqO95AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAInSURBVEhL7VQxayJBFM4/SmUXUoQ0BoLBQlJst01sjsDa5CAkYCpZMAgBCaSzMo3bzDWLYDiIYBA0W4SANsEgKBZrs1bfvTczq5vonblwcgT84MHOzpvvfW/em7eBL4a14FVjLfivMBRIb+9js9DWP5ZjJti7wiYffm8ZgYF2WYhPBJ3iXwiOZ/K4LF7NrNKGr10W4n8LTou+/hHFGF2Rg7FH5OSzZZyg9DyeBQxNVkP7HiTlv9iBhZvmSPMAvTvNs2vitJSHyedCwUEHjn2EnV3eP4RhC3QDtRViTnCq4KLRfNDWRo8PPF8jTnsJImg0BbIGE16gOuyj5eaR4qDfb9Hw+giIJ0bruO3MfLfPUOUyvTow2JcTFgK5I5WUEjxC9ZzXSZiFW5SLJ0jQXuy89qbCS3rYgjNUeywiYbvoDsfwfWUy+SVl7VZM4kni0gMGriV5s/WJ2qQEpjcc8tj3ihcT/LSVhh+sQWNOsFnpTAVNRVGZn8qWKhWTcjlF5zeCR2iU6HZ0+4SWY8FCCeZviejZBYnP+RM+1sNBKH4C/7WNmwyXTmf+LpB/dyZ5jt0XmVA06EpueNGU6JGIGJU1Xaqh5T1owbovg3tkOVDKQrZYw6MWZfBbqDs4lT2sb+nDPSzglD/Vw2TRlx+dEh5NCYkJtcs3bLHv3jVa6KNKL53XPCFy9ttbHdTzekocIm1fqATCNohOCRL+5ynxRbAWvGqsBa8WwC+lsZe3bhWWOwAAAABJRU5ErkJggg==" InformativeScreenshot="cc9f18cca04d64cff88845da30fa3bd9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                </uix:NClick>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="33f0e7a8-3263-46ac-a42f-433882a61bd3" Text="Pendiente" Version="V3">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/analiza/pool-07/single/?appid=1761902d-2f8f-4503-933d-4c63cea95275&amp;sheet=ca4d857b-197e-40c8-b028-417e7e1050c0&amp;theme=gestiona-default-busqueda&amp;identity=c33a9e99-a259-4aaa-a469-2e0d74b48f82&amp;opt=ctxmenu,currsel" DesignTimeRectangle="494, 484, 202, 38" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' placeholder='Buscar en cuadro de lista' type='text' class='lui-search__input ng-pristine ng-valid ng-empty ng-valid-maxlength ng-touched' aaname='' /&gt;" Guid="78e5453b-6503-488c-8501-b274684c2ab5" ImageBase64="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" InformativeScreenshot="6d8b3d42235b017c0ac9c138e5f24cea.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='wicket-wicket-0' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="854,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Pendiente de elegir el elemento, no hay elementos para realizar pruebas" />
+                <uix:NCheckState DisplayName="Check App State" sap:VirtualizedContainerService.HintSize="854,329" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                </uix:NCheckState>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVDhPRZNLSNRRFMb/OmNlmr0oWvSCNoEWBQlB0KIosF1tatWiFqkzvk2iUZNeZKmlJKVgm4Ko6GmlkGlqBOGjiKymGjWTsvc2JP31nbk+LnxzH3O/75zz3fP3JgdBv0dWnI+AbwPpXhUBfy+5s7/pfIQMr5vMmHKt1wmxdndqRIkOcwn6QgTjhjmfNk7zSXh2SWiAht1waMm4RAaFAt1NnBKZICcJ9QRi/9GwB34Pwc1CqNoMnXXwsx+GenWWD4eXjkqkWvcToiL6iRFCOvxHbRr8GoSHRyF7JmR6KCM4vgaaTsDIW/jYCSfWjqqsPPa6DFJFHqJiE3x7Dx0XIC8ReSGy380ZEkqPgeIV0FgCj89CwfyPOk/xFKWSYynw+QX0XIfCBY5g0bMUvWgxlKfC5X3QVg3vWhQobOWNy+wyy6CHJ+fh7SMoXQWh5VCzHW4XQddV+NTtCAPP3dpKrNvpAgV87R55c0Z4eQde3YPXD+D7B/j6BvqanagRqrcq5XlwZqP+V5mnNUf98fdLIHGElgr3ZC2V8GcYane49M0Xe4GT611Z+UkQboP7RyQgT4L+iEqI61LDKJ1YKFmp6HL63BZHsHLMeXtai2gkM/FDu8so4Gs1D6zDnNuHljgz63c5AXuNcKt7ViMbLKsvfXAseUx3ik1gvTCgLnSqkadwZb8TMNHOi9B7QyXNcHsz70aOXmfRO91ZbQKGQmGUnHiZ1wS31IXRlIVrWc79gwudgGWbPeuvAmZyYLqVrbetPUejTdJYOpGyBGq2wY+IUlavmE9Bv5FPaY4Xop/DpEiCIuTKh4j6YVx7Rwgtg7sh68Ix7cM6zxCmyZPDDsidEaPuSiYztkz7DqFfiGjfJvFirVcL9u1MsDzvP0HMd8ZtkvB1AAAAAElFTkSuQmCC" InformativeScreenshot="c97bad6538675212b7cfa68ceca9ab49.jpg" Selector="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/*' /&gt;" Url="[in_Config(&quot;URLEGestiona&quot;)]" />
+          </uix:NApplicationCard.TargetApp>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="954,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Error no previsto: &quot; + exception.Message]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <Sequence sap:VirtualizedContainerService.HintSize="988,103" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="534,597" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-        <TryCatch.Try>
-          <Sequence sap:VirtualizedContainerService.HintSize="496,391" sap2010:WorkflowViewState.IdRef="Sequence_7">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="434,280" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="906adcf0-fbb7-4e17-8c7e-96ecd77acb8e" Version="V2">
-              <uix:NApplicationCard.Body>
-                <ActivityAction x:TypeArguments="x:Object">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </ActivityAction>
-              </uix:NApplicationCard.Body>
-              <uix:NApplicationCard.TargetApp>
-                <uix:TargetApp Area="0, 0, 0, 0" />
-              </uix:NApplicationCard.TargetApp>
-            </uix:NApplicationCard>
-          </Sequence>
-        </TryCatch.Try>
-      </TryCatch>
     </Sequence>
-    <Sequence DisplayName="Buscar solicitud" sap:VirtualizedContainerService.HintSize="596,103" sap2010:WorkflowViewState.IdRef="Sequence_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="596,103" sap2010:WorkflowViewState.IdRef="Sequence_4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Sequence>
-    <Sequence DisplayName="Descargar documento" sap:VirtualizedContainerService.HintSize="596,103" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Descargar documento" sap:VirtualizedContainerService.HintSize="988,103" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
