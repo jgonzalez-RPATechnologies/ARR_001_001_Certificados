@@ -1,9 +1,8 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="LoginGestiona" this:LoginGestiona.in_Config="[New Dictionary(Of String, String) From {&#xA;&#x9;{&quot;URLEGestiona&quot;, &quot;https://gestiona-07.espublico.com/login&quot;},&#xA;&#x9;{&quot;NombreCredencialesEGestiona&quot;, &quot;CredencialesEGestiona&quot;},&#xA;&#x9;{&quot;NombreFolderOrquestador&quot;, &quot;ARR_001&quot;}&#xA;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
-    <x:Property Name="out_Gestiona" Type="OutArgument(ui:UiElement)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1172,4266</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,4414</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -102,7 +101,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN *********&#xA;Este módulo Realizará el acceso a la aplicación Gestiona.&#xA;&#xA;******** REQUISITOS **********&#xA;Este módulo no tiene requisitos previos.&#xA;&#xA;******** ENTRADAS ************&#xA;-in_Config&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con la configuración del Proceso, los campos necesarios para este módulo son los siguientes:&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;&#xA;******** SALIDAS *************&#xA;- out_Gestiona&lt;UiElement&gt;: Ventana de la aplicación Gestiona, se utilizará para cerrarla al finalizar el proceso." DisplayName="Login Gestiona" sap:VirtualizedContainerService.HintSize="1068,4201" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="******** DESCRIPCIÓN *********&#xA;Este módulo Realizará el acceso a la aplicación Gestiona.&#xA;&#xA;******** REQUISITOS **********&#xA;Este módulo no tiene requisitos previos.&#xA;&#xA;******** ENTRADAS ************&#xA;-in_Config&lt;Dictionary&lt;string, string&gt;&gt;: Diccionario con la configuración del Proceso, los campos necesarios para este módulo son los siguientes:&#xA;        - URLEGestiona&lt;string&gt;: Dirección de la URL para el acceso a la aplicación eGestiona.&#xA;        - NombreCredencialesEGestiona&lt;string&gt;: Nombre del Asset con las credenciales para la aplicación eGestiona.&#xA;        - NombreFolderOrquestador&lt;string&gt;: Nombre de la carpeta del orquestador en la que se almacenarán los Assets.&#xA;&#xA;******** SALIDAS *************&#xA;- out_Gestiona&lt;UiElement&gt;: Ventana de la aplicación Gestiona, se utilizará para cerrarla al finalizar el proceso." DisplayName="Login Gestiona" sap:VirtualizedContainerService.HintSize="1052,4349" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="CredencialesErroneas" />
     </Sequence.Variables>
@@ -112,9 +111,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Intentar logarse" sap:VirtualizedContainerService.HintSize="1006,3305" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Intentar logarse" sap:VirtualizedContainerService.HintSize="1010,3698" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Logarse en Gestiona" sap:VirtualizedContainerService.HintSize="968,3055" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Logarse en Gestiona" sap:VirtualizedContainerService.HintSize="972,3448" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="Accedido" />
             <Variable x:TypeArguments="x:String" Name="FolderOrquestador" />
@@ -130,7 +129,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign DisplayName="Fijar parametros de Credenciales" sap:VirtualizedContainerService.HintSize="906,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign DisplayName="Fijar parametros de Credenciales" sap:VirtualizedContainerService.HintSize="930,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -152,25 +151,25 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:GetRobotCredential AssetName="[NombreCredenciales]" CacheStrategy="None" DisplayName="Obtener credenciales" FolderPath="[FolderOrquestador]" sap:VirtualizedContainerService.HintSize="906,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[contrasenya]" Username="[usuario]">
+          <ui:GetRobotCredential AssetName="[NombreCredenciales]" CacheStrategy="None" DisplayName="Obtener credenciales" FolderPath="[FolderOrquestador]" sap:VirtualizedContainerService.HintSize="930,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[contrasenya]" Username="[usuario]">
             <ui:GetRobotCredential.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:GetRobotCredential.TimeoutMS>
           </ui:GetRobotCredential>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: esPublico Gestiona" sap:VirtualizedContainerService.HintSize="906,2564" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[out_Gestiona]" ScopeGuid="83941790-4286-46ca-a84a-6791a393ca06" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: esPublico Gestiona" sap:VirtualizedContainerService.HintSize="930,2980" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="83941790-4286-46ca-a84a-6791a393ca06" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="872,2347" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="896,2763" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="810,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]0[u(ctrl)][u(hk)]" Version="V3" />
-                  <uix:NCheckState DisplayName="Check App State 'INPUT'" sap:VirtualizedContainerService.HintSize="810,1599" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="854,154" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]0[u(ctrl)][u(hk)]" Version="V3" />
+                  <uix:NCheckState DisplayName="Check App State 'INPUT'" sap:VirtualizedContainerService.HintSize="854,1599" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Timeout="3" Version="V3">
                     <uix:NCheckState.IfExists>
                       <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="506,1382" sap2010:WorkflowViewState.IdRef="Sequence_23">
                         <sap:WorkflowViewStateService.ViewState>
@@ -215,7 +214,7 @@
                       <uix:TargetAnchorable BrowserURL="https://gestiona-07.espublico.com/login" DesignTimeRectangle="701, 375, 304, 50" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='username' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' name='username' type='text' class='c-field__input  w-full' aaname='' /&gt;" Guid="7b39c4d7-17fd-47ab-9b74-1c21b1718e38" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAA2CAYAAABJPmUgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARsSURBVHhe7dqNauJYGIDhvcm9j72PvQWh0CIEAh2EoNSK2lappDhT6iAI0nEaRpytQlGcme4K355zkvjvTGSs4uF94EAT82chL0nMHwIAliBoAKwxDdqff/3NYDAYRzliC0EDgGND0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKzxtkFrlCV19k6c6nM0Y15LPPWZ14gmo2nnerZsK/fOrL9uzNab0/PF2fSZOZasVHrR9AH9aNUlV3iQr5NoBoCd2EvQUmcX4g+ieVMJg+bWpDN4keHSGL9GC807kqAN7y7VsVzK/cr/BMDv2FPQ1Mg8yDiaHUoaNF/60fQvHUnQALyNPQQtK8XropycZVRo5pN24KC9duU+l1XHFQb3xClKpT07vrX7NtsoqyOdGbd9yTgZs42U+o5uoS3D6a1k9B2rD+I5+vNw3f51dmU78k9Lcuez7aQ9X4JR9BmARPYStEpvLI2MOlHTZWl/iz6LT/aDBO27NDx9PEW5f1K3sL1AfE/HZHZrnChon2qS1sdcepS+ug3+2qya/adL3WiB8Dulzjw5Lz1I830gQzV3JWiDD+Kq5U4zvnR66niePkpOB1Dtn+dsQHJ7Cpr6Oz5p84/hZ0mDZoKwNHIL1zYziYO2ui/59ii3+RsVuHAySdCCUlZFqD63zESaOpTT9cL9uNUXMxVbDNpE2nkVU6cm3fl4Derm/+XWFtcFsNn+gqaEJ7Ka/qLP3IRBW/ejwOjfaIklW1+hXUjxLpD+mu0lukJbY3G95e8YWgxaTyquuuWdhj72Iv652tameANYsdegySSQK3Mrpa9qkgZtKSo/s80ztMlAmoVLSafVPtQ6KedSrpr6hjCUKGiToXSqZXHjbcRjq6Ctfu+YOQaCBiS236BprRs5VSewW6vvPmiTcBtrb9MaRXMst/PHEvlv1JVWQUcmI8V2OC9J0LolzzyH8z8N5Ed0u2hitVXQwiu001Jgpmae5VbNJ2hAcvsPmrrda+fiX/N2HDTphleAK6+IfFfbUvtM30hHT36pi+tcSCV6XhZa3L+JlX6uZaZCY/P+WByiZxOixeBMJCio9bYKGs/QgF05QNCUkTrRo9u03QZNRUftU18BpnMfpKN/wXx6FD8fXn1NXxuJb32dsjT1MoP4Cs2Tqzhy6kpSv9IR/oL5LMFd2fyiuRIi9f3y7wPpT/czf8xJgqZs/JVzKXIAfuowQVPCq53dB02HZqjfDXNnV4Enrn7HbPZ8zBh9lornzb2HtvgMTR2hBNfFKGJ6GzfSrOrb1rkQvXbFn24jI07+o7RNrIrSNCFKGDSN99CA3/a2QQOAPSJoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYg6ABsAZBA2ANggbAGgQNgDUIGgBrEDQA1iBoAKxB0ABYY2PQGAwG4xhHbBo0ADh2BA2AJUT+Bzc5/tfyWjVrAAAAAElFTkSuQmCC" InformativeScreenshot="05ae36da29f93421d8f17cac65c2f8d1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='esPublico Gestiona' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                     </uix:NCheckState.Target>
                   </uix:NCheckState>
-                  <uix:NCheckState DisplayName="Check App State 'Abrir Gestiona'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="810,374" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Abrir Gestiona'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="854,374" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Timeout="3" Version="V3">
                     <uix:NCheckState.IfExists>
                       <uix:NClick ClickType="Single" DisplayName="Click 'Abrir Gestiona'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="83941790-4286-46ca-a84a-6791a393ca06" Version="V3">
                         <uix:NClick.Target>
@@ -225,6 +224,30 @@
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.Target>
                       <uix:TargetAnchorable DesignTimeRectangle="1003, 215, 111, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Abrir Gestiona'" FullSelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='¿Abrir Gestiona?' role='dialog' /&gt;&lt;ctrl name='Abrir Gestiona' role='push button' automationid='' check:text='Abrir Gestiona' /&gt;" Guid="4f89df59-de59-4816-8764-d3a4512604a9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHMAAAAkCAYAAAC6yAWpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARPSURBVHhe7Zs/TyJBGMbvc/gl6OzsLK+zs7Ozs7CgICEWmthYGBILChNCYYgNBQkVJldoQYyNJiYnBcfhHQvushAUWUmee9/Z2WVYQQ85PNjMk2xgdmbn32/eZ3YJ+wVaoZGGGSINwXzp92FaNso/7vG9VNbHnB7MhzkxL1U+TM6oVH/jwWyi13PkWa15FPNhTsyrrwD1YTJpLqC1OGJeKjMfJoeujsjF0nOvh3LlXqYUmOzFWosnlZuGueDSMEMkDTNE0jBDJA0zRNIwQ6QZw2wjs1PD0nYDl/KMkGFiY7uGxLVMvyenjbOshbsnmX5PziPOT+tYj3LbdNDnRroJW2ZPpUn78omaLczSA1Z36tgioIlr5bfDSWFWqTwBSf1VtzrIHtQQoXYz1x3YrS6MchMpgmnIEhOpaiG6W0feu3iivnyuZgrz5qSGtWwblSxNbrKJrjw/McwJxG0txcgJ/lXkXDcoug1kP7QSPlczhNlCMlZDhqui1by+Xce59wuhhLmXsxAXNkzQjyxURCZF1j6dO2ogyXnHZI7qhMrve+k6Vl5NsmvrG7mOTI9Wt2z67S5TBOer3LE+KhcDa44cWDBEW26aj40C1RuAq9bFdh4vtOWileM4NpE/pPoof3n/ATdykVW+KW1FDaRun92MKTQ7mLdssaYPKLNL8K56IuXBXD2kfMdB12giTuDXswxBTkKM4LekNb+COQ6YjQTlDSLeTbsw5PUtsk2avKwA6KCSM7C0S/0wTWxSuWQp8Jt0AN5QmsbB12zmCCCNwy65aXecg3GcGT10TWqXyxYeRTV2tQ3b4fE5uElTuQPzY9uAohnB7OPy2JtE5fCsdoTNivIchf6KVm5XXsFUJndIbeEG3oTxRHVpz7SLdf8ao0Dwgv0SN2htpCjCeK9NFXmiZRVvwBR1xSjaZBbQw3nS63twHG569aQtUt2yheShgTVuk/uwP7cwvQihieTJ5IMidc2z2lcwJfypYcp6aGJcR5B6E4Ai5wl3RbJNcpHIjizzHkzffVguzEh6PEyRbjVFlO4VXc8V9cwrzO5VnVZb4HFERk30gmJTwvxKkWo4Pd+eRN5UMEmGhS3ai74embis8kJ6xF1uEJnu/i2tkcu3WsgUlLZY1Abvx3mTvtOeuEblU579qu3LcQRtNnGr2OwomPI6USc96mT4/LzCFFZzaAWe62TU8Hk5mOjJg7jNZ6vbPG0Fbhw+CJNl0qMIWdgK1ct1L8cMRE954XBmH/ZVA5uyXc5LXNH+S3saLwI+xzck8QtvT+4gT486oo9s30PtU13kOFu0SL3rEsXBdWNh4hmXdKe/zO3vNJA9nePI1Po/0jBDJA0zRNIwQyQNM0TSMEMkDTNE0jBDpJEw9Z+gF09j/wStX09YPI19PUG8OPTzl8hk4lrzK+bDnJjXyBeHWC8v8pU+Cl32Yn3M58F8xCt9xEvVEEytxZaGGRoBfwCs7Lvc/haB7QAAAABJRU5ErkJggg==" InformativeScreenshot="ef013e6623ed6ccf62b7a030c85637c1.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='esPublico Gestiona - Google Chrome' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <uix:NCheckState DisplayName="Check App State" sap:VirtualizedContainerService.HintSize="854,424" sap2010:WorkflowViewState.IdRef="NCheckState_5" Timeout="3" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,207" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;BE-002: Credenciales de eGestiona erróneas.&quot;]" />
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" FullSelectorArgument="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/*' /&gt;&lt;webctrl visibleinnertext='Usuario o contraseña incorrectos.*' /&gt;" Guid="f47c2b1a-6afc-4d0a-a83d-40008023d199" SearchSteps="Selector" />
                     </uix:NCheckState.Target>
                   </uix:NCheckState>
                 </Sequence>
@@ -237,7 +260,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="972,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="976,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -248,14 +271,14 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="400,606" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence sap:VirtualizedContainerService.HintSize="400,583" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No se ha podido iniciar sesión en eGestiona&quot;]" />
-              <uix:NTakeScreenshot DisplayName="Take Screenshot 'esPublico Gestiona'" FileName="[String.Format(&quot;Screenshots\screenshot-{0}.png&quot;, DateTime.Now.ToString(&quot;yyMMddhhmmssffffff&quot;))]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="338,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" OutUiElement="[out_Gestiona]" Version="V3">
+              <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No se ha podido iniciar sesión en eGestiona&quot;]" />
+              <uix:NTakeScreenshot DisplayName="Take Screenshot 'esPublico Gestiona'" FileName="[String.Format(&quot;Screenshots\screenshot-{0}.png&quot;, DateTime.Now.ToString(&quot;yyMMddhhmmssffffff&quot;))]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="358,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3">
                 <uix:NTakeScreenshot.Target>
                   <uix:TargetAnchorable DesignTimeRectangle="0, 0, 1265, 740" DesignTimeScaleFactor="1" FriendlyName="'esPublico Gestiona'" Guid="9d7df5b1-5bab-45e6-86a0-53799db81872" ImageBase64="" InformativeScreenshot="2069943a9907cd0c85ed6a30d39ba266.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='esPublico Gestiona - Google Chrome' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive">
                     <uix:TargetAnchorable.FuzzySelectorArgument>
@@ -266,11 +289,11 @@
                   </uix:TargetAnchorable>
                 </uix:NTakeScreenshot.Target>
               </uix:NTakeScreenshot>
-              <Throw Exception="[New Exception(&quot;Error desconocido en el acceso a eGestiona.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
+              <Throw Exception="[New Exception(&quot;Error desconocido en el acceso a eGestiona.&quot;)]" sap:VirtualizedContainerService.HintSize="358,90" sap2010:WorkflowViewState.IdRef="Throw_3" />
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:SelectorNotFoundException" sap:VirtualizedContainerService.HintSize="972,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:SelectorNotFoundException" sap:VirtualizedContainerService.HintSize="976,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -281,28 +304,28 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:SelectorNotFoundException" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="400,333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence sap:VirtualizedContainerService.HintSize="400,310" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;BE-003: Página de acceso a eGestiona no es como se esperaba.&quot;]" />
-              <Throw Exception="[New BusinessRuleException(&quot;Página de acceso a eGestiona no es como se esperaba.&quot;)]" sap:VirtualizedContainerService.HintSize="338,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;BE-003: Página de acceso a eGestiona no es como se esperaba.&quot;]" />
+              <Throw Exception="[New BusinessRuleException(&quot;Página de acceso a eGestiona no es como se esperaba.&quot;)]" sap:VirtualizedContainerService.HintSize="358,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:UiElementExists DisplayName="¿Credenciales erróneas?" Exists="[CredencialesErroneas]" sap:VirtualizedContainerService.HintSize="1006,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="¿Credenciales erróneas?" Exists="[CredencialesErroneas]" sap:VirtualizedContainerService.HintSize="1010,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="035b7e03-0bb3-4630-9469-741d416253e1" InformativeScreenshot="2f195754affb50758cf73033567e6337" Selector="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/?x=FYu0CmeU9q0G5v2WPdhI8g' /&gt;&lt;webctrl visibleinnertext='Usuario o contraseña incorrectos.*' /&gt;" TimeoutMS="3000">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="035b7e03-0bb3-4630-9469-741d416253e1" InformativeScreenshot="2f195754affb50758cf73033567e6337" Selector="&lt;html app='chrome.exe' url='https://gestiona-07.espublico.com/*' /&gt;&lt;webctrl visibleinnertext='Usuario o contraseña incorrectos.*' /&gt;" TimeoutMS="3000">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[CredencialesErroneas]" DisplayName="Si credenciales erróneas" sap:VirtualizedContainerService.HintSize="1006,376" sap2010:WorkflowViewState.IdRef="If_3" />
+    <If Condition="[CredencialesErroneas]" DisplayName="Si credenciales erróneas" sap:VirtualizedContainerService.HintSize="1010,376" sap2010:WorkflowViewState.IdRef="If_3" />
   </Sequence>
 </Activity>
